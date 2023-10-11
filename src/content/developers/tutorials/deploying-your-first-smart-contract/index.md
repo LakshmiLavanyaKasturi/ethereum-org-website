@@ -17,42 +17,41 @@ Don’t worry, as it’s our first smart contract, we’ll deploy it on a [local
 
 ## Writing our contract {#writing-our-contract}
 
-First step is to [visit Remix](https://remix.ethereum.org/) and create a new file. On the upper left part of the Remix interface add a new file and enter the file name you want.
+To begin, go to the [Remix website](https://remix.ethereum.org/) and initiate the process by creating a new file. In the top-left corner of the Remix interface, select the icon "create new file" and then choose a filename of your preference. For instance, you can name it "first-smart-contract.sol." This extension _.sol_ designates it as a piece of code written in the Solidity programming language.
 
 ![Adding a new file in the Remix interface](./remix.png)
 
-In the new file, we’ll paste the following code.
+In the newly created file, you should insert the following Solidity code:
 
 ```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity >=0.5.17;
-
-contract Counter {
-
-    // Public variable of type unsigned int to keep the number of counts
-    uint256 public count = 0;
-
-    // Function that increments our counter
-    function increment() public {
-        count += 1;
-    }
-
-    // Not necessary getter to get the count value
-    function getCount() public view returns (uint256) {
-        return count;
-    }
-
-}
+1  // SPDX-License-Identifier: MIT
+2  pragma solidity >=0.5.17;
+3  
+4  contract Counter {
+5  
+6      // Public variable of type unsigned int to keep the number of counts
+7      uint256 public count = 0;
+8  
+9      // Function that increments our counter
+10     function increment() public {
+11         count += 1;
+12     }
+13  
+14     // Not necessary getter to get the count value
+15     function getCount() public view returns (uint256) {
+16         return count;
+17     }
+18 }
 ```
 
-If you’re used to programming you can easily guess what this program does. Here is an explainer line by line:
+Let's take a closer look and gain a better understanding of the code example given.
 
-- Line 4: We define a contract with the name `Counter`.
-- Line 7: Our contract stores one unsigned integer named `count` starting at 0.
-- Line 10: The first function will modify the state of the contract and `increment()` our variable `count`.
-- Line 15: The second function is just a getter to be able to read the value of the `count` variable outside of the smart contract. Note that, as we defined our `count` variable as public this is not necessary but is shown as an example.
+Line 4: In this line, we define a Solidity contract named Counter.
+Line 7: Within the contract, we have a public variable named count, which is of type unsigned integer (uint256). It starts with an initial value of 0.
+Line 10: This line contains a function called increment(). When called, this function increases the value of the count variable by 1. It modifies the state of the contract.
+Line 15: The code features another function named getCount(). This function is essentially a getter, allowing you to read the value of the count variable. It is marked as view, meaning it doesn't alter the state of the contract. Note that, in this case, declaring a separate getter is optional since the count variable is already marked as public, making its value accessible externally.
 
-This is all for our first simple smart contract. As you may know, it looks like a class from OOP (Object-Oriented Programming) languages like Java or C++. It’s now time to play with our contract.
+The structure of this code resembles that of classes in object-oriented programming languages like Java or C++. It serves as a basic example of a smart contract. You can now proceed to interact with and deploy this contract.
 
 ## Deploying our contract {#deploying-our-contract}
 
